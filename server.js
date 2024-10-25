@@ -32,4 +32,7 @@ app.use('/api/attachments', attachmentRoutes);
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Export the server for use in tests
+module.exports = { app, server };
