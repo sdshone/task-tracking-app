@@ -34,7 +34,7 @@ npm install
 Create a .env file in the root directory with the following variables:
 
 ```plaintext
-MONGO_URI=<your-mongo-uri>
+MONGO_URI=mongodb://localhost:27017/tasktracking
 PORT=5000
 ```
 - Run the server:
