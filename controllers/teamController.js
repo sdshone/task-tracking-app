@@ -64,3 +64,19 @@ exports.getTeamTasks = async (req, res) => {
         res.status(500).send('Server error');
     }
 };
+
+// Get all members of a specific team
+exports.getTeamMembers = async (req, res) => {
+    try {
+        const team = await Team.findById(req.params.teamId).populate('members', 'name email'); // populate 'members' with 'name' and 'email'
+
+    if (!team) {
+        return res.status(404).json({ message: 'Team not found' });
+    }
+
+    res.status(200).json({ members: team.members });
+    } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+    }
+};

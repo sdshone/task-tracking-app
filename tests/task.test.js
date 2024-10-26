@@ -7,7 +7,6 @@ let token;
 
 
 beforeAll(async () => {
-    process.env.PORT = '5001'; // Use a different port
     // Pre-create a user in the database
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash('password123', salt);
